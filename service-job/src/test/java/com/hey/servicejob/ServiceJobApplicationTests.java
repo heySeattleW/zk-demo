@@ -19,8 +19,9 @@ public class ServiceJobApplicationTests {
     MyJob myJob;
 
     @Test
-    public void testJob(){
+    public void testJob() throws InterruptedException {
         myJob.doJob();
+        Thread.sleep(100000L);
     }
 
 }

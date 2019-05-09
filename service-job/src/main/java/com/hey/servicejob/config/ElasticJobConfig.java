@@ -4,7 +4,6 @@ import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Data
@@ -21,7 +20,9 @@ public class ElasticJobConfig {
     }
 
     public ZookeeperRegistryCenter regCenter(ZookeeperConfiguration config) {
-        return new ZookeeperRegistryCenter(config);
+        ZookeeperRegistryCenter center = new ZookeeperRegistryCenter(config);
+        center.init();
+        return center;
     }
 
 
